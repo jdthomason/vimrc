@@ -42,3 +42,6 @@ augroup numbertoggle
 	autocmd BufLeave,FocusLost,InsertEnter * set norelativenumber
 augroup END
 
+" Disable bell sounds and visuals
+set noerrorbells visualbell t_vb=
+autocmd GUIEnter * set visualbell t_vb=

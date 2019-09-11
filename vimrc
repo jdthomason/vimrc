@@ -26,9 +26,6 @@ colo rigel
 " Be sure that we are wrapping text
 set wrap
 
-" Highlight text that extends beyond the 80th column
-match ErrorMsg '\%>80v.\+'
-
 " This setting toggles on hybrid line numbering
 set number relativenumber
 

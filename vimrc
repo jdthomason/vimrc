@@ -3,6 +3,8 @@
 
 " Plugin loader
 call plug#begin('~/.vim/plugged')
+    " NERDTree
+    Plug 'scrooloose/nerdtree'    
 
     " Airline plugin
     Plug 'vim-airline/vim-airline'
@@ -10,8 +12,26 @@ call plug#begin('~/.vim/plugged')
 
     " Color theme(s)
     Plug 'Rigellute/rigel'
+    Plug 'flazz/vim-colorschemes'
+    Plug 'wdhg/dragon-energy'
+
+    " Syntax checker
+    Plug 'scrooloose/syntastic'
 
 call plug#end()
+
+" Set some stuf for Syntastic
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+
+let g:systastic_always_populate_loc_list = 1
+let g:syntastic_auto_loc_list = 1
+let g:syntastic_check_on_wq = 0
+let g:syntastic_mode_map={'mode': 'passive'}
+
+" Set key binding for NERDTree
+map <C-n> :NERDTreeToggle<CR>
 
 " Disable auto comments
 autocmd  FileType * setlocal formatoptions-=c formatoptions-=r formatoptions-=o
@@ -21,7 +41,9 @@ set termguicolors
 
 " Set color scheme
 syntax enable 
-colo rigel 
+colo dragon-energy
+hi Normal guibg=NONE ctermbg=NONE
+hi MatchParen cterm=bold ctermbg=NONE guibg=NONE guifg=red
 
 " Be sure that we are wrapping text
 set wrap
